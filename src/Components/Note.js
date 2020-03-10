@@ -5,7 +5,9 @@ class Note extends Component {
     
   return (
     <div className="Note">
-      notes here
+    <p>{this.props.currentFolder.name}</p>
+    <p>{this.props.currentNote.name}</p>
+    <p>{this.props.currentNote.content}</p>
     </div>
   );
   }

@@ -13,7 +13,8 @@ class Main extends Component {
       </header>
       <FolderSidebar 
       foldersList={this.props.foldersList}
-      history={this.props.history}/>
+      history={this.props.history}
+      selectedFolderId = {this.props.selectedFolderId}/>
       <NotesList notesList={this.props.notesList}/>
     </div>
   );

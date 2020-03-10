@@ -37,11 +37,17 @@ li {
 .noteItem {
   background-color: gray;
   width: 50%;
-  margin: 10px;
+  margin: 10px auto;
   padding: 10px;
   cursor: pointer;
+  
 }
 
-button {
-  margin: 10px;
+.delete {
+  margin: 20px;
+}
+
+
+.folderSelected {
+  background-color: brown ;
 }

@@ -7,7 +7,10 @@ class FolderSidebar extends Component {
  render() {
   let foldersList = this.props.foldersList.map(folder => {
     return (
-      <button className="folderItem" onClick={() => {this.props.history.push('/folder/'+folder.id)}} key={folder.id}>{folder.name}</button>
+      <button className={this.props.selectedFolderId === folder.id ?
+         "folderSelected folderItem" : "folderItem"} onClick={() =>
+           {this.props.history.push('/folder/'+ folder.id)}}
+            key={folder.id}>{folder.name}</button>
     )
   })
   

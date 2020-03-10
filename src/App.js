@@ -15,7 +15,6 @@ state = {
 
 
 render() {
-  console.log(this.state.selectedFolderId);
   return (
     <div className="App">
       <Route exact path="/"   
@@ -27,14 +26,27 @@ render() {
         />
       )}
     />
-    <Route path="/folder/:folder-id"   
+    <Route exact path="/folder/:folderId"   
       render={(props) => (
         <Main 
           foldersList = {this.state.folders}
-          notesList = {this.state.notes.filter(note => note.folderId === props.match.params['folder-id'])}
+          notesList = {this.state.notes.filter(note => note.folderId === props.match.params.folderId)}
           history={props.history}
+          selectedFolderId = {props.match.params.folderId}
         />
       )}
+    />
+    <Route exact path="/note/:noteId"   
+      render={(props) => {
+        let note = this.state.notes.find((note) => note.id === props.match.params.noteId);
+        let folder = this.state.folders.find(folder => folder.id === note.folderId);
+        return (
+        <Note 
+          currentFolder = {folder}
+          currentNote = {note}
+          history={props.history}
+        />
+      )}}
     />
     </div>
   );
