@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
 
 class Note extends Component {
+  render(){
+    
   return (
     <div className="Note">
-      < />
+      notes here
     </div>
   );
+  }
 }
 
 export default Note;
