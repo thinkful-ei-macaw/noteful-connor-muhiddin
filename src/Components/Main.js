@@ -11,7 +11,9 @@ class Main extends Component {
       <header>
         <h1>Noteful</h1>
       </header>
-      <FolderSidebar foldersList={this.props.foldersList}/>
+      <FolderSidebar 
+      foldersList={this.props.foldersList}
+      history={this.props.history}/>
       <NotesList notesList={this.props.notesList}/>
     </div>
   );

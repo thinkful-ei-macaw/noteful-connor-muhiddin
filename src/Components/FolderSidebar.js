@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import '../App.css';
 
 class FolderSidebar extends Component {
- 
+
+
  render() {
   let foldersList = this.props.foldersList.map(folder => {
     return (
-      <div className="folderItem">{folder.name}</div>
+      <button className="folderItem" onClick={() => {this.props.history.push('/folder/'+folder.id)}} key={folder.id}>{folder.name}</button>
     )
   })
   
@@ -19,4 +20,3 @@ class FolderSidebar extends Component {
   }
 }
 export default FolderSidebar;
-  

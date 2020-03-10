@@ -7,7 +7,7 @@ class NotesList extends Component {
  render() {
   let notesList = this.props.notesList.map(note => {
     return (
-      <li className='noteItem'>
+      <li className='noteItem' key={note.id}>
         <h2>{note.name}</h2>
         Date modified:   {moment(note.modified).format('LL')}
         <button>Delete</button>

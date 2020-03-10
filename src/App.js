@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import {Route} from 'react-router-dom';
 import './App.css';
 import Main from './Components/Main';
-import FolderSidebar from './Components/FolderSidebar';
 import Note from './Components/Note';
 import store from './store';
 
@@ -9,17 +9,33 @@ class App extends Component {
 
 state = {
   notes: store.notes,
-  folders: store.folders,
+  folders: store.folders
 }
 
+
+
 render() {
+  console.log(this.state.selectedFolderId);
   return (
     <div className="App">
-      <Main 
-      foldersList={this.state.folders} 
-      notesList={this.state.notes}/>
-      {/* <Note /> */}
-      
+      <Route exact path="/"   
+      render={(props) => (
+        <Main 
+          foldersList = {this.state.folders}
+          notesList = {this.state.notes}
+          history={props.history}
+        />
+      )}
+    />
+    <Route path="/folder/:folder-id"   
+      render={(props) => (
+        <Main 
+          foldersList = {this.state.folders}
+          notesList = {this.state.notes.filter(note => note.folderId === props.match.params['folder-id'])}
+          history={props.history}
+        />
+      )}
+    />
     </div>
   );
   } 
